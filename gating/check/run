@@ -37,7 +37,8 @@ fi
 # Install pip.
 if ! which pip; then
   curl --silent --show-error --retry 5 \
-    https://bootstrap.pypa.io/get-pip.py | sudo python2.7
+    https://bootstrap.pypa.io/get-pip.py > /tmp/get-pip.py
+  python2.7 /tmp/get-pip.py 'setuptools==39.0.1' 'virtualenv<20'
 fi
 
 # Install bindep and tox with pip.
